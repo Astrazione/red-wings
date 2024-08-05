@@ -15,27 +15,26 @@ import RscProgress;
 import RscControlsGroup;
 
 
-
-class LTDM_class_Text: RscStructuredText
+class RW_Text: RscStructuredText
 {
 	size = 0.05;
 };
-class LTDM_class_Picture: RscPicture
+class RW_Picture: RscPicture
 {
 	style = 2096;
 	tooltipColorText[] = {main_color,1};
 	tooltipColorBox[] = {main_color,1};
 	tooltipColorShade[] = {0,0,0,0.5};
 };
-class LTDM_class_Background: IGUIBack
+class RW_Background: IGUIBack
 {
 	colorBackground[] = {background_color,1};
 };
-class LTDM_class_Frame: IGUIBack
+class RW_Frame: IGUIBack
 {
 	colorBackground[] = {main_color,1};
 };
-class LTDM_class_Combo: RscCombo
+class RW_Combo: RscCombo
 {
 	sizeEx = 0.05;
 	font = "RobotoCondensedBold";
@@ -56,7 +55,7 @@ class LTDM_class_Combo: RscCombo
 		color[] = {main_color,1};
 	};
 };
-class LTDM_class_Button: RscButton
+class RW_Button: RscButton
 {
 	colorText[] = {1,1,0,1};
 	colorDisabled[] = {1,1,0,0.5};
@@ -68,7 +67,7 @@ class LTDM_class_Button: RscButton
 	font = "RobotoCondensedBold";
 	period = -1;
 };
-class LTDM_class_Checkbox: RscCheckBox
+class RW_Checkbox: RscCheckBox
 {
 	color[] = {main_color,1};
 	colorFocused[] = {main_color_light,1};
@@ -76,12 +75,12 @@ class LTDM_class_Checkbox: RscCheckBox
 	colorPressed[] = {main_color,1};
 	colorDisabled[] = {main_color_dark,1};
 };
-class LTDM_class_Progress: RscProgress
+class RW_Progress: RscProgress
 {
 	colorFrame[] = {main_color,1};
 	colorBar[] = {main_color,0.7};
 };
-class LTDM_class_Group: RscControlsGroup
+class RW_Group: RscControlsGroup
 {
 	class VScrollbar
 	{

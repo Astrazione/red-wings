@@ -1,0 +1,6 @@
+#include "GUI\Custom Classes.hpp"
+
+corpseManagerMode = 0;
+corpseLimit = 10000;
+corpseRemovalMinTime = 999999;
+corpseRemovalMaxTime = 999999;

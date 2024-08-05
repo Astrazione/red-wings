@@ -1,0 +1,14 @@
+<? xml version = "1.0" encoding = "utf-8" ?>
+
+<Project name="Liberty TDM">
+	
+	<Container name="Classes">
+		
+		<Key ID="STR_LTDM_Rifleman">
+			<Original>Rifleman</Original>
+			<Russian>Стрелок</Russian>
+		</Key>
+		
+	</Container>
+	
+</Project>

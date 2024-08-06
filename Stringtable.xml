@@ -27,5 +27,6 @@
 			<Russian>Начать</Russian>
 		</Key>		
 	</Container>
-	
+	<Container name="Flight">
+	</Container>
 </Project>

@@ -30,10 +30,10 @@ if (_frame != "") then {
 		case ("middle"): { _width / 2 };
 	};
 	
-	private _left = _display ctrlCreate ["LTDM_class_Frame", -1, _group];
-	private _top = _display ctrlCreate ["LTDM_class_Frame", -1, _group];
-	private _right = _display ctrlCreate ["LTDM_class_Frame", -1, _group];
-	private _bottom = _display ctrlCreate ["LTDM_class_Frame", -1, _group];
+	private _left = _display ctrlCreate ["RW_Frame", -1, _group];
+	private _top = _display ctrlCreate ["RW_Frame", -1, _group];
+	private _right = _display ctrlCreate ["RW_Frame", -1, _group];
+	private _bottom = _display ctrlCreate ["RW_Frame", -1, _group];
 	
 	_left ctrlSetPosition [
 		_position # 0 - _delta,

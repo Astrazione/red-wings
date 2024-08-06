@@ -7,7 +7,7 @@ _start_button = _display getVariable "Start Button";
 _map = _display getVariable "Lobby Map";
 
 Helicopters apply {
-    _vehicle_combo lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName")
+    _vehicle_combo lbAdd getText (configFile >> "CfgVehicles" >> _x get "Classname" >> "displayName")
 };
 
 Heights apply {
@@ -18,16 +18,23 @@ Speeds apply {
     _flight_speed_combo lbAdd str _x;
 };
 
-
-_vehicle_combo lbSetCurSel (missionNamespace getVariable ["RW_SelectedVehicleIndex", 0]);
-_flight_height_combo lbSetCurSel (missionNamespace getVariable ["RW_SelectedHeightIndex", 0]);
-_flight_speed_combo lbSetCurSel (missionNamespace getVariable ["RW_SelectedSpeedIndex", 0]);
-
 _vehicle_combo ctrlAddEventHandler ["LBSelChanged", {
     params["_combo", "_index"];
     _display = ctrlParent _combo;
     RW_SelectedVehicleIndex = _index;
+
+	_picture = _display getVariable "Vehicle Picture";
+	_picture ctrlSetText (Helicopters # _index get "Picture");
+	_picture ctrlSetTextColor [1, 0.666, 0, 1];
+
+	if (not isNil "RW_MapMarker") then {
+		RW_MapMarker setMarkerTypeLocal (Helicopter # _index get "Map Icon");
+	}
 }];
+
+_vehicle_combo lbSetCurSel (missionNamespace getVariable ["RW_SelectedVehicleIndex", 0]);
+_flight_height_combo lbSetCurSel (missionNamespace getVariable ["RW_SelectedHeightIndex", 0]);
+_flight_speed_combo lbSetCurSel (missionNamespace getVariable ["RW_SelectedSpeedIndex", 0]);
 
 _flight_height_combo ctrlAddEventHandler ["LBSelChanged", {
     params["_combo", "_index"];

@@ -32,15 +32,14 @@ _main_left_layout = _main_left + _main_wh_gap;
 
 _heli_text = [	//надпись вертолёт
 	_display,
-	"Heli Text",
+	"Vehicle Text",
 	"RW_Text",
 	[
 		_main_left_layout,
 		_main_top + _main_wh_gap * _k,
 		_vehicle_icon_width,
 		_combo_height
-	],
-	["outer", _border]
+	]
 ] call RW_fnc_Create_Control;
 
 _map_text = [	//надпись карты
@@ -52,15 +51,14 @@ _map_text = [	//надпись карты
 		_main_top + _main_wh_gap * _k,
 		_main_right - _vehicle_icon_width - 3 * _main_wh_gap,
 		_combo_height
-	],
-	["outer", _border]
+	]
 ] call RW_fnc_Create_Control;
 
 
 [	//иконка техники
 	_display,
-	"Vehicle Icon",
-	"RW_Frame",
+	"Vehicle Picture",
+	"RW_Picture",
 	[
 		_main_left_layout,
 		_main_top + (_interelement_gap + _main_wh_gap) * _k + _combo_height,
@@ -92,8 +90,7 @@ _flight_height_text = [	//текст высоты полёта
 		_main_top + (2 * _main_wh_gap + 2 * _interelement_gap + _vehicle_icon_width) * _k + 2 * _combo_height,
 		_vehicle_icon_width,
 		_combo_height
-	],
-	["outer", _border]
+	]
 ] call RW_fnc_Create_Control;
 
 [	//combobox высоты полёта
@@ -118,8 +115,7 @@ _flight_speed_text = [	//текст начальной скорости полё
 		_main_top + (3 * _main_wh_gap + 3 *_interelement_gap + _vehicle_icon_width) * _k + 4 * _combo_height,
 		_vehicle_icon_width,
 		_combo_height
-	],
-	["outer", _border]
+	]
 ] call RW_fnc_Create_Control;
 
 [	//combobox скорости полёта
@@ -152,7 +148,13 @@ _map = [	//карта с выбором точки спавна
 	_display,
 	"Lobby Map",
 	"RscMapControl",
-	[0,0,0,0]
+	[
+	_main_left_layout + _vehicle_icon_width + _main_wh_gap,
+	_main_top + _main_wh_gap * _k + _combo_height + _interelement_gap,
+	_main_right - _vehicle_icon_width - 3 * _main_wh_gap,
+	_main_bottom - _main_top - 2 * _main_wh_gap * _k - _combo_height - _interelement_gap
+	],
+	["outer", _border]
 ] call RW_fnc_Create_Control;
 
 _map ctrlMapSetPosition [

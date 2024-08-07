@@ -1,9 +1,17 @@
 player addEventHandler ["Respawn", {
+	
 	player allowDamage false;
 	player enableSimulation false;
-    player addAction ["<t color='#1010FF'>Open config menu</t>", { call RW_fnc_Lobby }, nil, 10, false, true];
-    
-    if (not isNil "Helicopter") 
-    then { call RW_fnc_Start_Flight }
-    else { call RW_fnc_Lobby };
+	
+    player addAction [
+		[localize "STR_RW_Start", 1, "left"] call RW_fnc_Create_Text,
+		{ isNil RW_fnc_Lobby },
+		nil,
+		10,
+		false,
+		false
+	];
+	
+	call RW_fnc_Start_Flight;
+	
 }];

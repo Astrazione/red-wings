@@ -11,8 +11,8 @@ _main_top = _main_left * _k;
 _main_bottom = 1;
 _main_right = 1;
 
-_vehicle_icon_width = 0.2;
-_combo_height = 0.05;
+_vehicle_icon_width = 0.25;
+_combo_height = 0.04;
 
 [	//главный бэкграунд
 	_display,
@@ -81,9 +81,9 @@ _map_text = [	//надпись карты
 	["outer", _border]
 ] call RW_fnc_Create_Control;
 
-_flight_height_text = [	//текст высоты полёта
+_height_text = [	//текст высоты полёта
 	_display,
-	"Flight Height Text",
+	"Height Text",
 	"RW_Text",
 	[
 		_main_left_layout,
@@ -95,7 +95,7 @@ _flight_height_text = [	//текст высоты полёта
 
 [	//combobox высоты полёта
 	_display,
-	"Flight Height Combo",
+	"Height Combo",
 	"RW_Combo",
 	[
 		_main_left_layout,
@@ -106,9 +106,9 @@ _flight_height_text = [	//текст высоты полёта
 	["outer", _border]
 ] call RW_fnc_Create_Control;
 
-_flight_speed_text = [	//текст начальной скорости полёта
+_speed_text = [	//текст начальной скорости полёта
 	_display,
-	"Flight Speed Text",
+	"Speed Text",
 	"RW_Text",
 	[
 		_main_left_layout,
@@ -120,7 +120,7 @@ _flight_speed_text = [	//текст начальной скорости полё
 
 [	//combobox скорости полёта
 	_display,
-	"Flight Speed Combo",
+	"Speed Combo",
 	"RW_Combo",
 	[
 		_main_left_layout,
@@ -167,10 +167,10 @@ _map ctrlMapSetPosition [
 _map ctrlMapAnimAdd [0, 1, [worldSize / 2, worldSize / 2]];
 ctrlMapAnimCommit _map;
 
-_heli_text ctrlSetStructuredText parseText ([localize "STR_RW_HelicopterText"] call RW_fnc_Create_Text);
-_map_text ctrlSetStructuredText parseText ([localize "STR_RW_MapText"] call RW_fnc_Create_Text);
-_flight_height_text ctrlSetStructuredText parseText ([localize "STR_RW_FlightHeight"] call RW_fnc_Create_Text);
-_flight_speed_text ctrlSetStructuredText parseText ([localize "STR_RW_FlightSpeed"] call RW_fnc_Create_Text);
-_start_button ctrlSetText localize "STR_RW_StartButton";
+_heli_text ctrlSetStructuredText parseText ([localize "STR_RW_HelicopterText", _combo_height / 0.05] call RW_fnc_Create_Text);
+_map_text ctrlSetStructuredText parseText ([localize "STR_RW_MapText", _combo_height / 0.05] call RW_fnc_Create_Text);
+_height_text ctrlSetStructuredText parseText ([localize "STR_RW_Height", _combo_height / 0.05] call RW_fnc_Create_Text);
+_speed_text ctrlSetStructuredText parseText ([localize "STR_RW_Speed", _combo_height / 0.05] call RW_fnc_Create_Text);
+_start_button ctrlSetText localize "STR_RW_Start";
 
 _display

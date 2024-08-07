@@ -1,8 +1,8 @@
-#define main_color 1,0.666,0
-#define main_color_dark 0.5,0.333,0
-#define main_color_darker 0.333,0.222,0
-#define main_color_light 1,0.75,0
-#define background_color 0.1,0.1,0.1
+#define main_color 0,0.666,1
+#define main_color_dark 0,0.333,0.5
+#define main_color_darker 0,0.222,0.333
+#define main_color_light 0,0.777,1
+#define background_color 0,0.1,0.13
 
 import ScrollBar;
 import RscStructuredText;
@@ -13,7 +13,6 @@ import RscButton;
 import RscCheckBox;
 import RscProgress;
 import RscControlsGroup;
-
 
 class RW_Text: RscStructuredText
 {
@@ -36,15 +35,15 @@ class RW_Frame: IGUIBack
 };
 class RW_Combo: RscCombo
 {
-	sizeEx = 0.05;
+	sizeEx = 0.04;
 	font = "RobotoCondensedBold";
 	arrowEmpty = "a3\3den\data\controls\ctrlcombo\arrowempty_ca.paa";
 	arrowFull = "a3\3den\data\controls\ctrlcombo\arrowempty_ca.paa";
 	colorBackground[] = {main_color_darker,1};
-	colorText[] = {main_color,1};
+	colorText[] = {1,1,1,1};
 	colorTextRight[] = {1,1,0,1};
 	colorSelectBackground[] = {main_color_dark,1};
-	colorSelect[] = {main_color,1};
+	colorSelect[] = {1,1,1,1};
 	colorSelectRight[] = {1,1,0,1};
 	tooltipColorText[] = {main_color,1};
 	tooltipColorBox[] = {main_color,1};
@@ -57,8 +56,8 @@ class RW_Combo: RscCombo
 };
 class RW_Button: RscButton
 {
-	colorText[] = {1,1,0,1};
-	colorDisabled[] = {1,1,0,0.5};
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.5};
 	colorBackground[] = {main_color_dark,1};
 	colorBackgroundDisabled[] = {main_color_darker,1};
 	colorBackgroundActive[] = {main_color,1};

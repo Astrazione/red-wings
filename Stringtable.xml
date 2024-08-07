@@ -1,32 +1,47 @@
 <? xml version = "1.0" encoding = "utf-8" ?>
 
 <Project name="Red Wings">
+	
 	<Container name="Lobby">
 		<Key ID="STR_RW_HelicopterText">
 			<Original>Helicopter</Original>
 			<Russian>Вертолёт</Russian>
 		</Key>
-
 		<Key ID="STR_RW_MapText">
-			<Original>Select spawn point on a map</Original>
+			<Original>Select a spawn point on the map</Original>
 			<Russian>Выберите точку спавна на карте</Russian>
 		</Key>
-
-		<Key ID="STR_RW_FlightHeight">
+		<Key ID="STR_RW_Height">
 			<Original>Height</Original>
 			<Russian>Высота</Russian>
 		</Key>
-
-		<Key ID="STR_RW_FlightSpeed">
+		<Key ID="STR_RW_Speed">
 			<Original>Speed</Original>
 			<Russian>Скорость</Russian>
 		</Key>
-
-		<Key ID="STR_RW_StartButton">
+		<Key ID="STR_RW_M">
+			<Original>m</Original>
+			<Russian>м</Russian>
+		</Key>
+		<Key ID="STR_RW_KMH">
+			<Original>km/h</Original>
+			<Russian>км/ч</Russian>
+		</Key>
+		<Key ID="STR_RW_Start">
 			<Original>Start</Original>
 			<Russian>Начать</Russian>
-		</Key>		
+		</Key>
 	</Container>
+	
 	<Container name="Flight">
+		<Key ID="STR_RW_Restart">
+			<Original>Restart</Original>
+			<Russian>Перезапуск</Russian>
+		</Key>
+		<Key ID="STR_RW_Repair">
+			<Original>Repair</Original>
+			<Russian>Починиться</Russian>
+		</Key>
 	</Container>
+	
 </Project>

@@ -2,11 +2,24 @@ isNil compile preprocessFile "Init\Functions.sqf";
 isNil compile preprocessFile "Init\Configs.sqf";
 isNil compile preprocessFile "Init\Respawn.sqf";
 
-player addAction ["<t color='#1010FF'>Open config menu</t>", { call RW_fnc_Lobby }, nil, 10, false, false];
-RW_SelectedVehicleIndex = 0;
-RW_SelectedHeightIndex = 0;
-RW_SelectedSpeedIndex = 0;
-call RW_fnc_Lobby;
+player addAction [
+	[localize "STR_RW_Start", 1, "left"] call RW_fnc_Create_Text,
+	{ isNil RW_fnc_Lobby },
+	nil,
+	10,
+	false,
+	false
+];
+
+player setVariable ["RW_SelectedVehicleIndex", 0];
+player setVariable ["RW_SelectedHeightIndex", 0];
+player setVariable ["RW_SelectedSpeedIndex", 0];
+player setVariable ["RW_SpawnPos", [worldSize / 2, worldSize / 2]];
+player setVariable ["RW_SpawnDir", 0];
+player setVariable ["RW_ActiveHeli", objNull];
+
+waitUntil { not isNull findDisplay 46 };
+isNil RW_fnc_Lobby;
 
 //////////////////////////////////////////////////////////	 DEBUG	//////////////////////////////////////////////////////////
 [] spawn {

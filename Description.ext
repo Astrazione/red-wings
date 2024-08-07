@@ -1,5 +1,7 @@
 #include "GUI\Custom Classes.hpp"
 
+respawnDelay = 0.01;
+
 corpseManagerMode = 0;
 corpseLimit = 10000;
 corpseRemovalMinTime = 999999;

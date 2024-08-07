@@ -1,25 +1,41 @@
-if (not isNil "Helicopter" and Helicopter != objNull) then
-{
-    deleteVehicle Helicopter;
-};
+deleteVehicle (player getVariable "RW_ActiveHeli");
 
-_helicopter_classname = Helicopters # RW_SelectedVehicleIndex get "Classname";
-_start_height = Heights # RW_SelectedHeightIndex;
-_start_speed = Speeds # RW_SelectedSpeedIndex;
-_start_pos = markerPos RW_MapMarker;
-_start_dir = markerDir RW_MapMarker;
+_vehicle_index = player getVariable "RW_SelectedVehicleIndex";
+_height_index = player getVariable "RW_SelectedHeightIndex";
+_speed_index = player getVariable "RW_SelectedSpeedIndex";
+
+_helicopter_classname = RW_Helicopters # _vehicle_index get "Classname";
+_start_height = RW_Heights # _height_index;
+_start_speed = RW_Speeds # _speed_index;
+_start_pos = player getVariable "RW_SpawnPos";
+_start_dir = player getVariable "RW_SpawnDir";
 _start_pos set [2, _start_height];
 
 player enableSimulation true;
-player enableDynamicSimulation true;
 player allowDamage true;
-Helicopter = createVehicle [_helicopter_classname, [0, 0, 1000], [], 0, "FLY"];
-Helicopter setPosATL _start_pos;
-Helicopter setDir _start_dir;
+_heli = createVehicle [_helicopter_classname, [0, 0, 1000], [], 0, "FLY"];
+_heli setPos _start_pos;
+_heli setDir _start_dir;
 
-player moveInDriver Helicopter;
+player moveInDriver _heli;
 
-Helicopter setVelocityModelSpace [0, _start_speed / 3.6, 0];
+_heli setVelocityModelSpace [0, _start_speed / 3.6, 0];
 
-Helicopter addAction [format ["<t color='#10FF10'>%1</t>", localize ""], { Helicopter setDamage 0; Helicopter setFuel 1 }, nil, 9, false, true];
-Helicopter addAction [format ["<t color='#FF1010'>%1</t>", localize ""], { call RW_fnc_Start_Flight }, nil, 8, false, true];
+_heli addAction [
+	[localize "STR_RW_Repair", 1, "left green"] call RW_fnc_Create_Text,
+	{ _heli = param[0]; _heli setDamage 0; _heli setFuel 1 },
+	nil,
+	9,
+	false,
+	true
+];
+_heli addAction [
+	[localize "STR_RW_Restart", 1, "left red"] call RW_fnc_Create_Text,
+	{ isNil RW_fnc_Start_Flight },
+	nil,
+	8,
+	false,
+	true
+];
+
+player setVariable ["RW_ActiveHeli", _heli];

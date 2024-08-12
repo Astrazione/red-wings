@@ -20,6 +20,7 @@ player setVariable ["RW_ActiveHeli", objNull];
 
 waitUntil { not isNull findDisplay 46 };
 isNil RW_fnc_Lobby;
+isNil compile preprocessFile "Init\Earplugs.sqf";
 
 //////////////////////////////////////////////////////////	 DEBUG	//////////////////////////////////////////////////////////
 [] spawn {
